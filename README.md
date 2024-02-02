@@ -1,2 +1,3 @@
 # YTS_Specific_Movies_Notifier
-Sent a discord alert when a matching movie title found in YTS.
+
+Sents a discord alert when a matching movie title in `movies_titles.txt` found in YTS.
