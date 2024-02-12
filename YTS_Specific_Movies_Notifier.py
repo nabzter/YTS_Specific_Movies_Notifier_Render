@@ -13,12 +13,12 @@ current_date = datetime.now().strftime("%d-%m-%Y")
 
 def read_title_names():
     with open("movies_titles.txt", "r") as file:
-        return {line.strip() for line in file}
+        return {line.strip().lower().replace(":", "") for line in file}
 
 def scrape_latest_titles():
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, "html.parser")
-    return [{"title": movie.text.strip(), "url": url + movie['href']} for movie in soup.select(".browse-movie-wrap a.browse-movie-title")[:4]]
+    return [{"title": movie.text.strip().lower().replace(":", ""),  "url": url + movie['href']} for movie in soup.select(".browse-movie-wrap a.browse-movie-title")[:4]]
 
 def send_to_discord(title, url):
     DiscordWebhook(url=webhook_url, content=f"@everyone\n Latest movie: **{title}**\n Date: {current_date}\n URL: {url}").execute()
@@ -42,7 +42,7 @@ while True:
         url = movie["url"]
         if title in stored_titles:
             print(f"Match found: {title}")
-            send_to_discord(title, url)
+            send_to_discord(title.title(), url)
             remove_matching_title(title)
             print(f"Removed from the file: {title}")
         
