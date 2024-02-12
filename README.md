@@ -7,6 +7,8 @@ Install Dependencies
 $ pip install -r requirements.txt
 ```
 
+Add your discord webhook URL to `webhook_url` variable.
+
 Run Script
 ```sh
 $ python YTS_Specific_Movies_Notifier.py
