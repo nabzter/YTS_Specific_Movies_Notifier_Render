@@ -23,7 +23,7 @@ $ pip install -r requirements.txt
 
 5. Run Script
 ```sh
-$ python YTS_Specific_Movies_Notifier.py
+$ python main.py
 ```
 
 Discord Alert Structure
