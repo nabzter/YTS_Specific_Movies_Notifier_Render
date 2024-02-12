@@ -2,6 +2,11 @@
 
 Sents a discord alert when a matching movie title in `movies_titles.txt` found in YTS.
 
+Install Dependencies
+```sh
+$ pip install -r requirements.txt
+```
+
 Run Script
 ```sh
 $ python YTS_Specific_Movies_Notifier.py
