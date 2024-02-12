@@ -2,14 +2,14 @@
 
 Sents a discord alert when a matching movie title in `movies_titles.txt` found in YTS.
 
-Install Dependencies
+1. Install Dependencies
 ```sh
 $ pip install -r requirements.txt
 ```
 
-Add your discord webhook URL to `webhook_url` variable.
+2. Add your discord webhook URL to `webhook_url` variable.
 
-Run Script
+3. Run Script
 ```sh
 $ python YTS_Specific_Movies_Notifier.py
 ```
