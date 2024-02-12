@@ -4,6 +4,7 @@ from discord_webhook import DiscordWebhook
 import time
 import pytz
 from datetime import datetime
+import re
 
 url = "https://yts.mx/"
 webhook_url = "webhook_url"
@@ -18,7 +19,7 @@ def read_title_names():
 def scrape_latest_titles():
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, "html.parser")
-    return [{"title": movie.text.strip().lower().replace(":", ""),  "url": url + movie['href']} for movie in soup.select(".browse-movie-wrap a.browse-movie-title")[:4]]
+    return [{"title": re.sub(r'\[.*?\]', '', movie.text.strip().lower().replace(":", "").replace(" ", "", 1)), "url": url + movie['href']} for movie in soup.select(".browse-movie-wrap a.browse-movie-title")[:4]]
 
 def send_to_discord(title, url):
     DiscordWebhook(url=webhook_url, content=f"@everyone\n Latest movie: **{title}**\n Date: {current_date}\n URL: {url}").execute()
