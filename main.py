@@ -10,7 +10,7 @@ url = "https://yts.mx/"
 webhook_url = "webhook_url"
 headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"}
 
-current_date = datetime.now().strftime("%d-%m-%Y")
+current_date = datetime.now().strftime("%d.%m.%y")
 
 def read_title_names():
     with open("movies_titles.txt", "r") as file:
