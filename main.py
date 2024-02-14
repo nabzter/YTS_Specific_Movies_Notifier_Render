@@ -11,7 +11,7 @@ import os
 keep_alive()
 
 url = "https://yts.mx/"
-webhook_url = os.environ['WEB_HOOK']
+webhook_url = os.environ.get('WEB_HOOK')
 headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"}
 
 current_date = datetime.now().strftime("%d.%m.%y")
