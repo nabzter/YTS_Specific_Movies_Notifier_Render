@@ -64,4 +64,4 @@ while True:
     print("No Matching Movies Found")
 
     print("Waiting 15 Mins...")
-    time.sleep(900)
+    time.sleep(20)
