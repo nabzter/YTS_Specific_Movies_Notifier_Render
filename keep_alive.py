@@ -1,12 +1,13 @@
 from flask import Flask, request, render_template
 from threading import Thread
+import os
 
 app = Flask('')
 
 # Function to append new title to the movies_titles.txt file
 def append_new_title(new_title):
     with open("movies_titles.txt", "a") as file:
-        file.write(new_title.lower() + "\n")
+        file.write(new_title.lower() + os.linesep)
 
 @app.route('/')
 def main():
